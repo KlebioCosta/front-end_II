@@ -1,0 +1,54 @@
+//Obtenha dados da altura e o sexo(M e F) de 15
+//pessoas e apresente os seguintes resultados:
+
+//-A maior e a menor altura do grupo;
+//-A média de altura dos homens;
+//O número de mulheres.
+
+let list = [];
+ i=0
+ while (i < 5){
+    let sexo = prompt("Digite o gênero:\n (M) masculno\n (F) feminino: ");
+    let altura = prompt("Digite a altura");
+
+    let pessoa = {
+        sexo: sexo,
+        altura: altura
+    }
+    list.push(pessoa)
+    i+=1
+ }
+
+ let maiorAltura = list[0].altura;
+ let menorAltura = list[0].altura;
+ let mediaAlturaHomem = 0;
+ let somaAlturaMulheres = 0;
+ let numMulheres = 0;
+ let numHomens = 0;
+
+ for (let i = 0; i < list.length; i++){
+    let pessoa = list[i];
+
+    if (pessoa.altura > maiorAltura){
+        maiorAltura = pessoa.altura;
+    }
+    if (pessoa.altura < menorAltura){
+        menorAltura = pessoa.altura;
+    }
+
+    if (pessoa.sexo === "f"){
+        somaAlturaMulheres += parseFloat(pessoa.altura);
+        numMulheres++;
+    } else {
+        numHomens++;
+        mediaAlturaHomem += parseFloat(pessoa.altura)
+    }
+    if (numHomens > 0){
+        mediaAlturaHomem = mediaAlturaHomem/numHomens;
+    }
+ }
+ console.log("A maior aultura do grupo é: "+maiorAltura);
+ console.log("A menor altura do grupo é: "+ menorAltura);
+ console.log("A media de altura dos homens são: "+mediaAlturaHomem);
+ console.log("O número de mulheres no grupo são: "+numMulheres);
+ 
